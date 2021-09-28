@@ -18,7 +18,7 @@ function addTask() {
   let field = document.querySelector(".field");
   let list = document.querySelector(".list");
 
-  if (field.value !== "") {
+  if (field.value.trim()) {
     let task = createTask(field.value);
     list.append(task);
     field.value = "";

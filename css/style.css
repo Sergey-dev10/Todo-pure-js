@@ -1,18 +1,15 @@
 .block {
     display: flex;
     flex-direction: column;
+    width: 30%;
+    margin: auto;
     padding: 10px;
     border: 1px solid black;
 
 }
-.control {
-    flex-basis: content;
-}
-.list {
-    flex-basis: content;
-}
 .task {
     display: flex;
+    justify-content: space-between;
     align-items: baseline;
 }
 .status {
@@ -20,4 +17,9 @@
 }
 .complited {
     text-decoration: line-through;
+}
+
+p {
+    width: 60%;
+    word-break:break-all;
 }
