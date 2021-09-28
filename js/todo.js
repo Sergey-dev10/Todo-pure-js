@@ -1,23 +1,40 @@
 function createTask(value) {
-    const task = document.createElement('div');
-    const checkBox = document.createElement('input');
-    task.className = 'task';
-    checkBox.setAttribute('type', 'checkbox');
-    task.innerHTML = `<p>${value}</p>`;
-    task.insertAdjacentElement('beforeend', checkBox);
-    return task;
+  let task = document.createElement("div");
+  task.className = "task";
+
+  let checkBox = document.createElement("input");
+  checkBox.setAttribute("type", "checkbox");
+  checkBox.className = "status";
+
+  task.innerHTML = `<p>${value}</p>`;
+  task.insertAdjacentElement("beforeend", checkBox);
+
+  checkBox.addEventListener("change", compliteTask);
+
+  return task;
 }
 
 function addTask() {
-    const field = document.querySelector('.field');
-    const list = document.querySelector('.list');
+  let field = document.querySelector(".field");
+  let list = document.querySelector(".list");
 
-    if (field.value !== '') {
-        const task = createTask(field.value);
-        list.append(task);
-        field.value = '';
-    }
+  if (field.value !== "") {
+    let task = createTask(field.value);
+    list.append(task);
+    field.value = "";
+  }
 }
 
-const btn = document.querySelector('.add');
-btn.addEventListener('click', addTask);
+function compliteTask(event) {
+  let { target } = event;
+  if (target.checked) {
+    target.previousElementSibling.classList.add("complited");
+  } else {
+    target.previousElementSibling.classList.remove("complited");
+  }
+}
+
+let btn = document.querySelector(".add");
+btn.addEventListener("click", addTask);
+
+
