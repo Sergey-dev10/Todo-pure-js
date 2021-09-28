@@ -7,6 +7,10 @@
     border: 1px solid black;
 
 }
+.control {
+    display: flex;
+    justify-content: space-between;
+}
 .task {
     display: flex;
     justify-content: space-between;
